@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.5.1.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Sora:wght@500;800&display=swap");
+
+        body {
+            margin: 0;
+            background-color: rgb(255, 252, 250);
+            font-family: 'Sora', sans-serif;
+        }
+
+        .header {
+            margin: 0;
+            padding: 0 185px;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            background-color: white;
+            justify-content: space-around;
+        }
+
+        .title {
+            width: 220px;
+            margin-top: 70px;
+            margin-bottom: 20px;
+            font-family: 'Sora', sans-serif;
+            font-size: 60px;
+            font-weight: 800;
+            align-items: center;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            position: relative;
+            animation: shake 5s linear infinite;
+        }
+
+        .title a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .title a:hover {
+            color: purple;
+
+        }
+
+        .input {
+            align-items: center;
+            justify-content: center;
+        }
+
+        #inputBoard {
+            width: 120px;
+            height: 120px;
+            background-color: blue;
+            color: white;
+            position: fixed;
+            right: 50px;
+            top: 220px;
+            border-radius: 60px;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #inputBoard:hover {
+            background-color: red;
+            animation:dong 1s linear infinite
+        }
+
+        .inputContent {
+            margin: 60px auto;
+            text-align: center;
+            font-family: 'Poor Story', cursive;
+            font-size: 18px;
+            letter-spacing: 3px;
+        }
+
+        .content {
+            margin: 15px auto;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            background-color: #ffd12a;
+            font-size: 50px;
+            font-weight: 500;
+            height: 90px;
+            text-transform: uppercase;
+            font-family: 'Sora', sans-serif;
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            align-items: center;
+            letter-spacing: 2px;
+            justify-content: center;
+        }
+
+        .f1 {
+            margin-right: 33%;
+        }
+
+        .f3 {
+            margin-left: 33%;
+        }
+
+        footer a {
+            text-decoration-line: none;
+            color: black;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        @keyframes shake {
+            0% {left: 0px;}
+            25% {left: 100px;}
+            50% {left: 0px;}
+            75% {left: -100px;}
+            100% {left: 0px;}
+        }
+
+        @keyframes dong {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(7deg);
+            }
+
+            50% {
+                transform: rotate(0deg);
+            }
+
+            75% {
+                transform: rotate(-7deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="title"><a href="../main.html" target="_blank">view.</a></div>
+    </div>
+    <div class="input">
+        <div id="inputBoard" onclick="mainBoard()">main<br>board</div>
+    </div>
+    <div class="inputContent">
+        작성자<br><input type="text" id="name" class="content"><br>
+        제목<br><input type="text" id="title" class="content"><br>
+        내용<br><textarea id="content" cols="70" rows="10" class="content"></textarea><br>
+        작성일<br><input type="text" id="regDate"><br><br>
+        <button type="update" onclick="change()">submit</button>
+    </div>
+    <footer>
+        <div class="f1"><a href="../profile.html">profile</a></div>
+        <div class="f2">
+            <a href="../signin.html" target="_blank">signin</a>
+        </div>
+        <div class="f3"><a href="../main.html">
+                eunji</a></div>
+    </footer>
+
+
+
+    <script>
+        var list = JSON.parse(localStorage.getItem('list'));
+
+        window.onload = function () {
+            var idx = parseInt(location.href.substr(location.href.lastIndexOf('=') + 1));
+
+            document.getElementById('title').value = list[idx].title;
+            document.getElementById('name').value = list[idx].name;
+            document.getElementById('content').value = list[idx].content;
+            document.getElementById('regDate').value = list[idx].regDate;
+
+        }
+
+        function Board(name, title, content, regDate) {
+            this.name = name,
+                this.title = title,
+                this.content = content,
+                this.regDate = regDate;
+        }
+
+        function change() {
+            var idx = parseInt(location.href.substr(location.href.lastIndexOf('=') + 1));
+
+            var cDate = new Date().toLocaleString();
+            var board = new Board(
+                document.getElementById('name').value,
+                document.getElementById('title').value,
+                document.getElementById('content').value,
+                cDate
+            );
+
+            localStorage.setItem('board', JSON.stringify(board));
+            list[idx] = board;
+            localStorage.setItem('list', JSON.stringify(list));
+
+            if (confirm('게시글이 정상적으로 수정되었습니다.\n메인화면으로 이동하시겠습니까?')) {
+                location.href = './list2.html'
+            }
+
+        }
+
+        function mainBoard() {
+            location.href = './list2.html'
+        }
+    </script>
+</body>
+
+</html>

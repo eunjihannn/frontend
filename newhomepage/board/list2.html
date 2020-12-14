@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.5.1.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Sora:wght@500;800&display=swap");
+
+        body {
+            margin: 0;
+            background-color: rgb(255, 252, 250);
+            font-family: 'Sora', sans-serif;
+
+        }
+
+        .header {
+            margin: 0;
+            padding: 0 185px;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+        }
+
+        .title {
+            width: 220px;
+            margin-top: 70px;
+            margin-bottom: 20px;
+            font-family: 'Sora', sans-serif;
+            font-size: 60px;
+            font-weight: 800;
+            align-items: center;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            position: relative;
+            animation: shake 5s linear infinite;
+        }
+
+        .title a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* .title:hover {
+            animation: shake 2s linear;
+        } */
+
+        .title a:hover {
+            color: purple;
+        }
+
+        .input {
+            align-items: center;
+            justify-content: center;
+        }
+
+        #inputBoard {
+            width: 120px;
+            height: 120px;
+            background-color: blue;
+            color: white;
+            position: fixed;
+            right: 50px;
+            top: 220px;
+            border-radius: 60px;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #removeBoard {
+            width: 120px;
+            height: 120px;
+            background-color: blue;
+            color: white;
+            position: fixed;
+            right: 50px;
+            top: 365px;
+            border-radius: 60px;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #inputBoard:hover {
+            background-color: hotpink;
+            animation:dong 1s linear infinite
+        }
+
+        #removeBoard:hover {
+            background-color: hotpink;
+            animation:dong 1s linear infinite
+        }
+
+        .board {
+            /* border: 1px solid black; */
+            width: 1200px;
+            margin: 50px auto;
+            align-items: center;
+            text-align: center;
+            font-size: 18px;
+            font-family: 'Poor Story', cursive;
+        }
+
+        .boardTitle {
+            width: 600px;
+            cursor: grabbing;
+        }
+
+        .boardTitle:hover {
+            background-color: blueviolet;
+            color: white;
+        }
+
+        th {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-top: 1px black solid;
+            border-bottom: 1px black solid;
+            letter-spacing: 5px;
+            color: rgb(62, 41, 82);
+
+            font-size: 20px;
+        }
+
+        td {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dotted gray;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            background-color: #ffd12a;
+            font-size: 50px;
+            font-weight: 500;
+            height: 90px;
+            text-transform: uppercase;
+            font-family: 'Sora', sans-serif;
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            align-items: center;
+            letter-spacing: 2px;
+            justify-content: center;
+        }
+
+        .f1 {
+            margin-right: 33%;
+        }
+
+        .f3 {
+            margin-left: 33%;
+        }
+
+        footer a {
+            text-decoration-line: none;
+            color: black;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        @keyframes shake {
+            0% {left: 0px;}
+            25% {left: 100px;}
+            50% {left: 0px;}
+            75% {left: -100px;}
+            100% {left: 0px;}
+        }
+
+        @keyframes dong {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(7deg);
+            }
+
+            50% {
+                transform: rotate(0deg);
+            }
+
+            75% {
+                transform: rotate(-7deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="title"><a href="../main.html" target="_blank">board.</a></div>
+    </div>
+    <div class="input">
+        <div id="inputBoard" onclick="inputBoard()">write</div>
+        <div id="removeBoard" onclick="removeBoard()">remove<br> all</div>
+    </div>
+    <table class="board">
+        <thead>
+            <tr>
+                <th>NUM</th>
+                <th>TITLE</th>
+                <th>WRITER</th>
+                <th>DATE</th>
+            </tr>
+        </thead>
+        <tbody id="tBody">
+
+        </tbody>
+
+    </table>
+    <footer>
+        <div class="f1"><a href="../profile.html">profile</a></div>
+        <div class="f2">
+            <a href="../signin.html" target="_blank">signin</a>
+        </div>
+        <div class="f3"><a href="../main.html">
+                eunji</a></div>
+    </footer>
+
+
+
+    <script>
+        var list = JSON.parse(localStorage.getItem('list'));
+
+        window.onload = function () { //게시글로 테이블 작성
+            if (list == undefined) { //undefined => 정의되어 있지 않다.
+                localStorage.setItem('list', JSON.stringify([]));
+                return;
+            }
+
+            var tBody = document.getElementById('tBody');
+            //테이블의 바디의 아이디값
+            tBody.innerHTML = '';
+
+            for (var i = 0; i < list.length; i++) {
+                var tr = document.createElement('tr'); //게시물 하나
+                var td1 = document.createElement('td'); //게시글 번호
+                td1.innerHTML = i + 1;
+
+                var td2 = document.createElement('td'); //게시글 제목
+                td2.innerHTML = list[i].title;
+                td2.setAttribute('onclick', 'pageView(this,' + i + ')');
+                td2.setAttribute('class', 'boardTitle');
+
+                var td3 = document.createElement('td'); //게시글 작성자
+                td3.innerHTML = list[i].name;
+
+                var td4 = document.createElement('td'); //게시글 작성일
+                td4.innerHTML = list[i].regDate;
+
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+
+                tBody.appendChild(tr);
+
+            }
+
+        }
+
+        function pageView(tag, idx) {
+            location.href = './view2.html?idx=' + idx;
+        }
+
+        function removeBoard() {
+            if (confirm('전체 게시글을 삭제하시겠습니까?')) {
+                localStorage.clear();
+                localStorage.setItem('list', JSON.stringify([]));
+                location.reload();
+            }
+
+        }
+
+        function inputBoard() {
+            location.href = './input2.html'
+        }
+
+
+    </script>
+</body>
+
+</html>

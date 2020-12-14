@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./signin.css">
+</head>
+
+<body>
+    <h1 onclick="locationMain()">sign&nbsp;in</h1>
+
+    <form action="#" method="GET" id="signinform">
+        ID <input type="text" name="id" id="id"><br>
+        PASSWORD  <input type="password" name="pw" id="pw"><br>
+        <div class="btns">
+            <div id="login" class="btn" onclick="login()">LOGIN</div>
+            <div id="signup" class="btn" onclick="locationSignup()">SIGN<br>UP</div>
+        </div>
+    </form>
+
+
+    <footer>
+        <div class="f1">
+            <a href="./profile.html">profile</a></div>
+        <div class="f2">
+            <a href="./main.html">eunji</a>
+        </div>
+        <div class="f3">
+            <a href="./board/list2.html">board</a>
+        </div>
+    </footer>
+
+    <script>
+        window.onload = function(){
+            // var title = document.getElementsByTagName('h1')[0];
+            // title.addEventListener('click',changeFooterColor);
+
+            // function changeFooterColor(){
+            //     body.style.backgroundColor = 'red';
+            // }
+        }
+        function locationSignup(){
+            location.href = './signup.html'
+        }
+
+        function login(){
+            var mem = JSON.parse(localStorage.getItem('member'));
+
+            var mId = document.getElementById('id').value;
+            var mPw = document.getElementById('pw').value;
+
+            if(mId==mem.id&&mPw==mem.pw){
+                if(confirm(mem.name+'님 환영합니다.\n메인화면으로 이동하시겠습니까?')){
+                    location.href = './main.html'
+                }
+            } else{
+                alert('로그인실패\n')
+            }
+        }
+
+        function locationMain(){
+            location.href = './main.html'
+        }
+    </script>
+</body>
+
+</html>

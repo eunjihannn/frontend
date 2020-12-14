@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Domine:wght@700&family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Domine:wght@700&family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Comfortaa:wght@300&family=Domine:wght@700&family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Comfortaa:wght@300&family=Domine:wght@700&family=Quicksand&family=Roboto+Slab&display=swap");
+body{
+    margin: 0;
+    font-family:'Quicksand', sans-serif;
+}
+.container1{
+    margin: 0;
+    height: 1100px;
+    padding: 0 185px;
+    background-color: rgb(255, 251, 228);
+}
+.header{
+    width: 100%;
+    color: rgb(0, 0, 95);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.title{
+    width: 200px;
+    margin-left: 50px;
+    margin-top: 50px;
+    font-family:'Domine', serif;
+    font-size: 65px;
+    font-weight: 800;
+}
+.title a{
+    text-decoration: none;
+    color: #430091;
+}
+.title a:hover{
+    color: red;
+}
+.menu ul{
+    list-style-type: none;
+    margin: 95px 20px 20px 80px;
+}
+.menu ul li{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: inline;
+    padding: 0 30px;
+    font-size: 17px;
+    font-weight: 600;
+}
+.menu ul li a{
+    color: rgb(0, 0, 95);
+    text-decoration: none;
+}
+.menu ul li a:hover{
+    /*text-decoration: underline;*/
+    color: red;
+}
+.main{
+    margin: 80px auto;
+    display: flex;
+    flex-direction: row;
+}
+.content{
+    width: 600px;
+    padding-left: 50px;
+}
+.content ul{
+    list-style-type: none;
+}
+.top{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(241, 143, 159);
+}
+.bottom{
+    font-size: 30px;
+    color: rgb(0, 0, 95);
+}
+.content ul li a{
+    text-decoration: none;
+}
+.container2{
+    height: 700px;
+    padding: 0 185px;
+    color: rgb(0, 0, 95);
+    font-family: 'Comfortaa', cursive;
+}
+.title2{
+    margin-left: 50px;
+    margin-top: 60px;
+    font-family:'Anton', sans-serif;
+    color: rgb(248, 117, 139);
+    font-weight: 800;
+    font-size: 50px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+.content2 ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.content2 ul li{
+    padding: 60px 70px;
+}
+#hongkong{
+    animation: reverse;
+}
+.name{
+    font-size: 20px;
+    font-weight: 600;
+}
+.nana{
+    font-size: 25px;
+}
+.time{
+    font-size: 13px;
+    color: rgb(151, 151, 172);
+}
+.container3{
+    padding: 80px 185px;
+    height: 1300px;
+    background-color: rgb(255, 251, 228);
+}
+.header3{
+    margin-left: 50px;
+    font-size: 50px;
+    font-family:'Anton', sans-serif;
+    color: rgb(248, 117, 139);
+    font-weight: 800;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+.content3{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: rgb(0, 0, 95);
+}
+.content3-1{
+    padding: 100px 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    color: rgb(0, 0, 95);
+}
+.fashion{
+    font-family: 'Roboto Slab', serif;
+    margin: 50px 40px;
+    padding: 100px 50px;
+    width: 450px;
+    height: 220px;
+    background-color: #6455C2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.fashion:hover{
+    animation: myMove 3s;
+}
+.beauty{
+    font-family: 'Roboto Slab', serif;
+    margin: 100px 40px 0px 40px;
+    padding: 100px 50px;
+    width: 450px;
+    height: 220px;
+    background-color: #ffdbce;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.beauty:hover{
+    animation: myMove 3s;
+}
+@keyframes myMove{
+    0%{
+        left: 0px;
+        top: 0px;
+    }
+    25%{
+        left: 100px;
+        top: 0px;
+    }
+    50%{
+        left: 100px;
+        top: 100px;
+    }
+    75%{
+        left: 0px;
+        top: 100px;
+    }
+    100%{
+        left: 0px;
+        top: 0px;
+    }
+}
+.fTitle{
+    font-size: 30px;
+    color: white;
+}
+.fContent{
+    font-size: 35px;
+    color: rgb(241, 241, 101);
+}
+.fTime{
+    color: white;
+    font-size: 18px;
+}
+.bTitle{
+    font-size: 30px;
+    color: rgb(0, 0, 95);
+}
+.bContent{
+    font-size: 32px;
+    color: rgb(0, 0, 95);
+}
+.bTime{
+    font-size: 18px;
+    color: rgb(0, 0, 95);
+}
+.container4{
+    padding: 80px 185px;
+    height: 1200px;
+    background-color: white;
+}
+.content4{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+.con1{
+    margin-top: 120px;
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    color: rgb(0, 0, 95);
+}
+.con2{
+    margin-top: 30px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    color: rgb(0, 0, 95);
+}
+.con3{
+    margin: 180px 120px;
+    width: 600px;
+    height: 700px;
+    color: white;
+    background-image: url("./img/사본\ -snack-4200689_1920.jpg");
+    opacity: 0.9;
+    /*background-color: rgb(240, 180, 195);
+    background-image: url("./img/food.jpg");*/
+    background-repeat: no-repeat;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: end;
+}
+.con1 ul li{
+    list-style-type: none;
+    text-align: center;
+}
+.con2 ul li{
+    list-style-type: none;
+    text-align: center;
+}
+.foodT{
+    font-size: 18px;
+    font-weight: bold;
+}
+.foodC{
+    font-size: 21px;
+}
+
+
+
+
+
+
+
+
+.footer{
+    padding: 80px 185px;
+    height: 200px;
+    background-color: rgb(240, 180, 195);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.footerTitle{
+    margin-top: 50px;
+    width: 500px;
+    font-size: 60px;
+    font-family: 'Domine', serif;
+}
+.sns{
+    margin-top: 50px;
+    margin-left: 820px;
+    font-size: 17px;
+}
+.sns a{
+    text-decoration: none;
+    color: white;
+}
+.sns a:hover{
+    font-size: 30px;
+}

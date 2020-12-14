@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./signup.css">
+</head>
+
+<body>
+    <h1 onclick="login()">sign&nbsp;up</h1>
+
+    <form action="#" method="GET" id="signinform">
+        <div class="content">
+        NAME&nbsp;&nbsp;<input type="text" name="name" id="name" class="form"><br>
+        </div>
+        <div class="content">
+        ID&nbsp;&nbsp;<input type="text" name="id" id="id"class="form"><br>
+        </div>
+        <div class="content">
+        PASSWORD&nbsp;&nbsp;<input type="password" name="pw" id="pw"class="form"><br>
+        </div>
+        <div class="content">
+        EMAIL&nbsp;&nbsp;<input type="email" name="mail" id="mail"class="form"><br>
+        </div>
+        <div class="btns">
+            <div id="signup" class="btn" onclick="signup()">SIGN<br>UP</div>
+        </div>
+    </form>
+   
+   
+
+
+    <footer>
+        <div class="f1"><a href="./profile.html">profile</a></div>
+        <div class="f2">
+            <a href="./main.html">eunji</a>
+        </div>
+        <div class="f3"><a href="./board/list2.html">
+                board</a></div>
+    </footer>
+
+    <script>
+        window.onload = function(){
+            
+        }
+
+        function signup(){
+            var name = document.getElementById('name').value;
+            var id = document.getElementById('id').value;
+            var pw = document.getElementById('pw').value;
+            var mail = document.getElementById('mail').value;
+
+            var member = {
+                'name':name,
+                'id':id,
+                'pw':pw,
+                'mail':mail
+            };
+
+            localStorage.setItem('member',JSON.stringify(member));
+
+            if(confirm(name+'님 회원가입이 완료되었습니다.\n로그인 화면으로 이동하시겠습니까?')){
+                location.href = './signin.html';
+            }
+        }
+
+        function login(){
+            location.href = './signin.html'
+        }
+
+
+    </script>
+</body>
+
+</html>

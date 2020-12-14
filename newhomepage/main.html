@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my homepage</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+    <div id="background">
+        <input type="checkbox" id="sideBar">
+        <div class="sideBarText">
+            <div class="inner" onclick="photo()">hi</div>
+            <div class="inner" onclick="calendar()">cal</div>
+            <div class="inner" onclick="play()">play</div>
+        </div>
+        <label for="sideBar" id="eunji">eunji.</label>
+        <div class="mainContent1">
+            <div class="picture1 banner">
+                <img src="./img/green.jpg" alt="red" width="450" height="570">
+                <span class="text">GREEN</span>
+            </div>
+            <div class="picture2 banner">
+                <img src="./img/house.jpg" alt="green" width="450" height="570">
+                <span class="text">RED</span>
+            </div>
+            <div class="picture3 banner" onclick="original()"><a href="https://lmchabot.com/" target="_blank">
+                    <div class="color"></div>
+                    <img src="./img/colorful.jpg" alt="ball" width="380" height="285">
+                    <span class="text">BLUE</span>
+                </a>
+            </div>
+        </div>
+        <div class="mainContent2">
+            <div class="mainp">
+                <div class="box"></div>
+                <img src="./img/popart.jpg" width="480" height="680">
+            </div>
+            <div class="house">
+                <div class="box1"></div>
+                <img src="./img/icecream.jpg" width="500" height="500">
+            </div>
+        </div>
+        <div class="mainContent2">
+            <div class="banana">
+                <div class="yellow"></div>
+                <img src="./img/banana.jpg" width="450" height="300">
+            </div>
+            <div class="tangerine">
+                <div class="blue"></div>
+                <img src="./img/orange.jpg" width="480" height="320">
+            </div>
+            <div class="call">
+                <div class="red"></div>
+                <img src="./img/call.jpg" width="420" height="450">
+            </div>
+        </div>
+
+        <footer>
+            <div class="f1"><a href="./profile.html">profile</a></div>
+            <div class="f2">
+                <a href="./signin.html" target="_blank">signin</a>
+            </div>
+            <div class="f3"><a href="./board/list2.html">
+                    board</a></div>
+        </footer>
+    </div>
+
+    <script>
+        window.onload = function () {
+        //     var eunji = document.getElementById('eunji');
+        //     eunji.addEventListener('mouseover',changeColor)
+        // }
+
+        // function changeColor(){
+        //     body.style.background = 'blue';
+        }
+
+        function play() {
+            location.href = './game.html'
+        }
+
+        function photo() {
+            location.href = './picture.html'
+        }
+
+        function calendar(){
+            location.href = './calendar.html'
+        }
+
+        function original(){
+            location.href = 'https://lmchabot.com/'
+        }
+    </script>
+</body>
+
+</html>

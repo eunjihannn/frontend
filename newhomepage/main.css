@@ -1,0 +1,398 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@500;800&display=swap");
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: white;
+    height: 2000px;
+}
+
+#eunji{
+    width: 100%;
+    text-align: center;
+    font-size: 80px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-family: 'Sora', sans-serif;
+    position: fixed;
+    top: 20px;
+    font-weight:800;
+    z-index: 10;
+}
+
+#eunji:hover{
+    transform: scale(1.2);
+    transition: all 1s;
+}
+
+#eunji:hover+div{
+    opacity: 0%;
+    transition: all 1s;
+}
+
+#eunji:hover~footer{
+    background-color: rgb(80, 91, 253);
+}
+
+#eunji:hover~footer>div{
+    animation: updown 5s infinite;
+}
+
+#eunji:hover+div+div>div>div{
+    left: 0;
+    transition: all 1s;
+}
+
+#eunji:hover+div+div+div>div>div{
+    left: 0;
+    transition: all 1s;
+}
+
+@keyframes updown{
+    0% {top: 0px;}
+    50%{top:100px}
+    100%{top:0px}
+}
+
+/* #background{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 2000px;
+    background-color: rgb(39, 39, 252);
+    z-index: 10;
+    float: left;
+} */
+
+.mainContent1{
+    margin-top: 190px;
+    width: 100%;
+    height: 900px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+.picture1{
+    margin-top: 20px;
+    margin-left: 70px;
+    position: relative;
+    width: 450px;
+    height: 570px;
+}
+.banner{
+    position: relative;
+    display: inline-block;
+}
+.banner img{
+    max-width: 100%;
+}
+.banner span.text{
+    position: absolute;
+    top: 70%;
+    left: 0;
+    /* transform: translateY(50%); */
+    display: none;
+    width: 100%;
+    font-size: 70px;
+    color: white;
+    font-weight: 800;
+    text-align: center;
+}
+
+.banner::before, .banner::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 95%;
+    height: 95%;
+    transform: translate(-50%,-50%);
+    transition: all .8s;
+}
+.banner::before{
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    width: 0;
+}
+.banner::after{
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    height: 0;
+}
+.banner:hover span.text{display: block;}
+.banner:hover::before{width: 95%;}
+.banner:hover::after{height: 95%;}
+
+.picture2{
+    margin-top: 150px;
+    position: relative;
+    width: 450px;
+    height: 570px;
+}
+.picture3{
+    margin-top: 40px;
+    margin-left: 150px;
+    margin-right: 70px;
+    position: relative;
+    width: 380px;
+    height: 285px;
+    overflow: hidden;
+}
+
+/* .color{
+    float: left;
+    position: absolute;
+    background-color: rgb(39, 39, 252);
+    width: 380px;
+    height: 285px;
+    left: -385px;
+}
+
+.picture3 img{
+    float: left;
+}
+
+.picture3:hover div.color{
+    transition: all .5s;
+    left:0;
+} */
+
+#sideBar{
+    display: none;
+}
+
+label{
+    cursor: pointer;
+}
+
+.sideBarText{
+    width: 100%;
+    height: 900px;
+    background-color: #6960e2;
+    position: fixed;
+    top: -900px;
+    float: left;
+    z-index: 1;
+    transition: all 1s;
+    color: purple;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input:checked+div{
+    top: 0px;
+}
+
+input:checked+div+label{
+    /* color: white; */
+    z-index: 10;
+    float: left;
+}
+
+.inner{
+    width: 350px;
+    height: 350px;
+    border-radius: 100%;
+    border: 15px #ff9f9f solid;
+    border-bottom: 15px #ffd12a solid;
+    border-top: 15px rgb(255, 102, 0) solid;
+    cursor: pointer;
+    color: black;
+    background-color: #8f8add;
+    font-size: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    letter-spacing: 5px;
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+
+.inner:nth-child(1):hover{
+    background: rgb(255, 73, 60);
+    color: white;
+    animation: none;
+}
+.inner:nth-child(2):hover{
+    background-color: #f7931e;
+    color: white;
+    animation: none;
+}
+.inner:nth-child(3):hover{
+    background-color: rgb(33, 131, 33);
+    color: white;
+    animation: none;
+}
+
+.mainContent2{
+    margin: 60px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+}
+
+
+.mainp{
+    margin-top: 150px;
+    width: 480px;
+    height: 680px;
+    position: relative;
+    overflow: hidden;
+}
+
+.box{
+    background: #ffd12a;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -480px;
+}
+
+.mainp:hover>div{
+    left: 0;
+    transition: all 1s;
+}
+
+.house{
+    width: 500px;
+    height: 500px;
+    margin-right: 120px;
+    position: relative;
+    overflow:hidden;
+}
+
+.box1{
+    background: mediumspringgreen;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -550px;
+}
+
+.house:hover>div{
+    left: 0;
+    transition: all 1s;
+}
+
+.banana{
+    margin-top: 400px;
+    margin-bottom: 200px;
+    width: 450px;
+    height: 300px;
+    position: relative;
+    overflow:hidden;
+}
+
+.yellow{
+    background-color: yellow;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -450px;
+}
+
+.banana:hover>div{
+    left: 0;
+    transition: all 1s;
+}
+
+.tangerine{
+    margin-top: 60px;
+    width: 480px;
+    height: 320px;
+    position: relative;
+    overflow:hidden;
+}
+
+.blue{
+    background-color: rgb(119, 0, 255);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -480px;
+}
+
+.tangerine:hover>div{
+    left: 0;
+    transition: all 1s;
+}
+
+.call{
+    margin-top: 300px;
+    width: 420px;
+    height: 450px;
+    position: relative;
+    overflow:hidden;
+}
+
+.red{
+    background-color: rgb(255, 74, 19);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -420px;
+}
+
+.call:hover>div{
+    left: 0;
+    transition: all 1s;
+}
+
+
+
+footer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #ffd12a;
+    font-size: 50px;
+    font-weight: 500;
+    height: 90px;
+    text-transform: uppercase;
+    font-family: 'Sora', sans-serif;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    align-items: center;
+    letter-spacing: 2px;
+    justify-content: center;
+    z-index: 3;
+}
+
+.f1{
+    margin-right: 33%;
+    position: relative;
+}
+
+.f2{
+    position: relative;
+}
+
+.f3{
+    margin-left: 33%;
+    position: relative;
+}
+
+footer a{
+    text-decoration-line: none;
+    color: black;
+}
+
+footer a:hover{
+    color: white;
+}
+

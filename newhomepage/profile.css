@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@500;800&display=swap");
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 73, 41);
+    font-family: 'Sora', sans-serif;
+    font-weight: 500;
+}
+
+#eunji{
+    width: 100%;
+    text-align: center;
+    font-size: 80px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-family: 'Sora', sans-serif;
+    position: fixed;
+    top: 20px;
+    font-weight:800;
+}
+
+#eunji:hover{
+    animation: shake 1s linear infinite;
+}
+
+#eunji:hover+div{
+    opacity: 0%;
+    transition: all 1s;
+}
+
+#eunji:hover~footer{
+    background-color: teal;
+}
+
+#eunji:hover~footer>div{
+    animation: updown 5s infinite;
+}
+
+@keyframes updown{
+    0% {top: 0px;}
+    50%{top:100px}
+    100%{top:0px}
+}
+
+@keyframes shake{
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(3deg);}
+    50%{transform: rotate(0deg);}
+    75%{transform: rotate(-3deg);}
+    100%{transform: rotate(0deg);}
+}
+
+.main{
+    margin: 200px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 50px;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.it{
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    letter-spacing: 2px;
+}
+
+.hide{
+    opacity: 0%;
+    color: white;
+}
+
+.show{
+    position: fixed;
+    left: 50;
+}
+
+.it:hover>div{
+    position: relative;
+    opacity: 100%;
+    transition: all 2s;
+}
+
+.it:hover>div.show{
+    color: purple;
+    text-decoration-line: line-through;
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #ffd12a;
+    font-size: 50px;
+    font-weight: 500;
+    height: 90px;
+    text-transform: uppercase;
+    font-family: 'Sora', sans-serif;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    align-items: center;
+    letter-spacing: 2px;
+    justify-content: center;
+    z-index: 3;
+}
+
+.f1{
+    margin-right: 33%;
+    position: relative;
+}
+
+.f2{
+    position: relative;
+}
+
+.f3{
+    margin-left: 33%;
+    position: relative;
+}
+
+footer a{
+    text-decoration-line: none;
+    color: black;
+}
+
+footer a:hover{
+    color: white;
+}
+
+.white>div{
+    position: fixed;
+    background-color: white;
+    top: 50px;
+    left: 50px;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    animation: star 3s infinite linear;
+}
+
+@keyframes star{
+    0%{opacity: 0%;}
+    50%{opacity: 50%;}
+    100%{opacity: 0%;}
+}
